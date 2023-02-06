@@ -16,7 +16,7 @@ const PostSchama = new mongoose.Schema(
         default: [],
     },
     viewsCount:{
-        type: Numder,
+        type: Number,
         default: 0,
     },
     user:{

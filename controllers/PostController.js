@@ -1,4 +1,32 @@
+import Post from '../models/Post.js';
 import PostModel from '../models/Post.js';
+
+export const getAll = async (req,res,) =>{
+    try{
+        const posts = await PostModel.find().populate('user').exec();
+
+        res.json(posts);
+    }catch(err){
+        console.log(err);
+        res.status(500).json({
+            messeng:'Не удалось получить статьи',
+        });
+    }
+}
+
+export const getOne = async (req,res,) =>{
+    try{
+        const postId = req.params.id;
+
+        PostModel.findOne
+
+    }catch(err){
+        console.log(err);
+        res.status(500).json({
+            messeng:'Не удалось получить статьи',
+        });
+    }
+}
 
 export const create = async (req,res)=>{
     try{
@@ -16,7 +44,7 @@ export const create = async (req,res)=>{
     }catch(err){
         console.log(err);
         res.status(500).json({
-            messeng:'Не удалось создатьстатью',
+            messeng:'Не удалось создать статью',
         });
     }
 };
